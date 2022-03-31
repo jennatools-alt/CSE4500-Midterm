@@ -16,6 +16,9 @@
     
 
       <h2>Section title</h2>
+
+      @include('messages')
+
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>

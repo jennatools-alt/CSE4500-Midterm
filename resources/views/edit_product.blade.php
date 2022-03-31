@@ -24,7 +24,11 @@
       @foreach($product_array as $product)
 
           <div class="mx-auto container">
-              <form id="edit-form"  enctype="multipart/form-data">
+              <form id="edit-form"  enctype="multipart/form-data" method="POST" action="{{ route('update_product') }}">
+
+              @csrf
+
+              <input type="hidden" name="id" value="{{$product->id}}">
            
                 <div class="form-group mt-2">
                     <label>Name</label>
@@ -41,7 +45,7 @@
 
                 <div class="form-group mt-2">
                     <label>Sale price</label>
-                    <input type="text" class="form-control" id="sale_price" name="sale_price" placeholder="sale price" required value="{{ $product->sale_price }}"/>
+                    <input type="text" class="form-control" id="sale_price" name="sale_price" placeholder="sale price"  value="{{ $product->sale_price }}"/>
                 </div>
 
                  <div class="form-group mt-2">
@@ -53,10 +57,9 @@
                 <div class="form-group mt-2">
                     <label>Category</label>
                     <select  class="form-select" required name="category">
-                        <option value="Dell"></option>
-                        <option value="Apple"></option>
-                        <option value="HP"></option>
-                        <option value=""></option>
+                        <option value="Dell">Dell</option>
+                        <option value="Apple">Apple</option>
+                        <option value="HP">HP</option>
                     </select>
                 </div>
                 
@@ -69,7 +72,7 @@
 
 
                 <div class="form-group mt-3">
-                    <input type="submit" class="btn btn-primary" name="edit_product" value="Edit"/>
+                    <input type="submit" class="btn btn-primary" name="edit_product" value="Update"/>
                 </div>
  
               </form>

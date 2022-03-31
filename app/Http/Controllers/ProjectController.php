@@ -34,4 +34,35 @@ class ProjectController extends Controller
     public function edit_product_image(){
         return view('edit_product_image');
     }
+
+
+
+
+
+    public function update_product(Request $request){
+
+        $id = $request->input('id');
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $price = $request->input('price');
+        $sale_price = $request->input('sale_price');
+        $quantity = $request->input('quantity');
+        $category = $request->input('category');
+        $type = $request->input('type');
+
+    
+        DB::table('products')->where('id', $id)
+                    ->update([
+                        'name'=>$name,
+                        'description'=>$description,
+                        'price'=>$price,
+                        'sale_price'=>$sale_price,
+                        'quantity'=>$quantity,
+                        'category'=>$category,
+                        'type'=>$type
+                    ]);
+
+                    return redirect('/')->with('success_message', 'Product has been updated successfully');
+    }
+
 }

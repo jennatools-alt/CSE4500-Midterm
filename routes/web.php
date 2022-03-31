@@ -25,3 +25,9 @@ Route::get('/edit_product/{id}', [ProjectController::class, 'edit_product'])->na
 
 
 Route::get('/edit_product_image', [ProjectController::class, 'edit_product_image'])->name('edit_product_image');
+
+
+
+
+
+Route::post('/update_product',[ProjectController::class, 'update_product'])->name('update_product');
